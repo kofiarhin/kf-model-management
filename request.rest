@@ -1,0 +1,56 @@
+#get Users
+###
+GET http://localhost:5000/api/users
+
+
+# create user
+###
+POST http://localhost:5000/api/users
+Content-Type: application/json
+
+{
+    "name": "admin",
+    "email": "admin@gmail.com",
+    "password": "password",
+    "userType": "admin"
+}
+
+#get users
+###
+GET http://localhost:5000/api/users
+
+
+#get User
+###
+GET http://localhost:5000/api/users/65f37d7e6d02b23cd19fc8f4
+
+# update user
+###
+PUT http://localhost:5000/api/users/65f37d7e6d02b23cd19fc8f4
+Content-Type: application/json
+
+{
+    "name": "kofi update"
+}
+
+# delete user
+###
+DELETE http://localhost:5000/api/users/65f37d7e6d02b23cd19fc8f4
+
+# login user
+###
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "admin@gmail.com",
+    "password": "password"
+}
+
+# logout user
+###
+GET http://localhost:5000/api/auth/logout
+
+# check auth 
+###
+GET http://localhost:5000/api/check
