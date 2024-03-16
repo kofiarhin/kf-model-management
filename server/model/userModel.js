@@ -18,6 +18,10 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    featured: {
+      type: Boolean,
+      default: false,
+    },
     userType: {
       type: String,
       required: true,
