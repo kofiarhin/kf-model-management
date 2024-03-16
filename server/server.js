@@ -9,6 +9,7 @@ const { verifyAdmin } = require("./middleware/authMiddleware");
 const cookieParser = require("cookie-parser");
 
 // setup middleware
+app.use(cookieParser());
 app.use(express.json());
 const port = process.env.PORT || 5000;
 
@@ -16,7 +17,6 @@ const port = process.env.PORT || 5000;
 connectDB();
 
 // setup middleware
-app.use(cookieParser());
 
 // routes
 app.use("/api/users", userRoutes);

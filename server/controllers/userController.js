@@ -10,6 +10,7 @@ const getUsers = async (req, res, next) => {
 };
 
 const createUser = async (req, res, next) => {
+  console.log("xxxx", req.body);
   try {
     const check = await User.findOne({ email: req.body.email });
     if (check) {
