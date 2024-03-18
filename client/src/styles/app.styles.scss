@@ -30,9 +30,18 @@ a {
 }
 
 .form-wrapper {
-  width: 540px;
+  width: 800px;
   max-width: 90%;
   margin: 0 auto;
+  .input-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .error {
+    color: red;
+    font-size: 0.8rem;
+  }
   label,
   select,
   input {
@@ -51,7 +60,7 @@ a {
   select {
     padding: 0.5rem 0rem;
     text-indent: 10px;
-    width: 50%;
+    width: 100%;
   }
   .label-wrapper {
     display: flex;

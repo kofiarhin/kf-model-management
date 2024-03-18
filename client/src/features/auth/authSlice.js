@@ -15,7 +15,7 @@ export const createUser = createAsyncThunk(
   "auth/createUser",
   async (userData, thunkApi) => {
     try {
-      const res = await fetch(`/api/users`, {
+      const res = await fetch(`/api/auth/register`, {
         headers: {
           "Content-Type": "application/json",
         },

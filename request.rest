@@ -3,39 +3,14 @@
 GET http://localhost:5000/api/users
 
 
-# create user
-###
-POST http://localhost:5000/api/users
-Content-Type: application/json
-
-{
-    "name": "admin",
-    "email": "admin@gmail.com",
-    "password": "password",
-    "userType": "admin"
-}
-
 #get users
 ###
-GET http://localhost:5000/api/users
+GET http://localhost:5000/api/users/65f6cdb7049575988407e425
 
-
-#get User
-###
-GET http://localhost:5000/api/users/65f37d7e6d02b23cd19fc8f4
-
-# update user
-###
-PUT http://localhost:5000/api/users/65f37d7e6d02b23cd19fc8f4
-Content-Type: application/json
-
-{
-    "name": "kofi update"
-}
 
 # delete user
 ###
-DELETE http://localhost:5000/api/users/65f37d7e6d02b23cd19fc8f4
+DELETE http://localhost:5000/api/users/65f6cdb7049575988407e425
 
 # login user
 ###
@@ -43,7 +18,7 @@ POST http://localhost:5000/api/auth/login
 Content-Type: application/json
 
 {
-    "email": "admin@gmail.com",
+    "email": "kofiarhin@gmail.com",
     "password": "password"
 }
 
@@ -54,3 +29,19 @@ GET http://localhost:5000/api/auth/logout
 # check auth 
 ###
 GET http://localhost:5000/api/check
+
+# register user
+###
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+    "name": "john doe ",
+    "email": "johndoe@gmail.com",
+    "password": "password",
+    "location": "sheffield",
+    "dob": "2002-02-01",
+    "phoneNumber": "234324324324",
+    "instagramUrl": "some instagram handle", 
+    "userType": "photographer"
+}

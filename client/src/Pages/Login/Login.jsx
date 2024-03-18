@@ -6,19 +6,29 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { isLoading, isSuccess } = useSelector((state) => state.auth);
+  const { isLoading, isSuccess, isError, message, user } = useSelector(
+    (state) => state.auth
+  );
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+  const [errors, setErrors] = useState([]);
 
   const { email, password } = formData;
   useEffect(() => {
+    if (user) {
+      // navigate to dashboard;
+      navigate("/dashboard");
+    }
     if (isSuccess) {
       dispatch(reset());
       navigate("/dashboard");
     }
-  }, [isLoading, isSuccess]);
+    if (isError) {
+      setErrors(message.errors);
+    }
+  }, [isLoading, isSuccess, isError, message, user]);
 
   const handleChange = (e) => {
     setFormData((prevState) => ({
@@ -37,6 +47,20 @@ const Login = () => {
 
     dispatch(loginUser(dataToSubmit));
   };
+
+const renderError = (field) => {
+  let item = null;
+  errors.forEach((error, index) => {
+    if (error.field === field) {
+      item = error;
+    }
+  });
+
+  if (item) {
+    return <p className="error"> {item.message} </p>;
+  }
+};
+
   return (
     <div>
       <h1 className="heading center">Login</h1>
@@ -51,6 +75,7 @@ const Login = () => {
               placeholder="Enter your email"
               onChange={handleChange}
             />
+            {errors.length > 0 ? renderError("email") : null}
           </div>
 
           <div className="input-group">
@@ -62,6 +87,8 @@ const Login = () => {
               placeholder="Enter password"
               onChange={handleChange}
             />
+
+            {errors.length > 0 ? renderError("password") : null}
           </div>
 
           <button type="submit">Submit</button>

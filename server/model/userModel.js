@@ -14,6 +14,18 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    dob: {
+      type: Date,
+      required: true,
+    },
+    instagramUrl: {
+      type: String,
+      required: true,
+    },
+    phoneNumber: {
+      type: Number,
+      required: true,
+    },
     location: {
       type: String,
       required: true,

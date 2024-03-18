@@ -8,24 +8,50 @@ import { useNavigate } from "react-router-dom";
 const Register = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { isSuccess, isLoading } = useSelector((state) => state.auth);
+  const { isSuccess, isLoading, isError, message, user } = useSelector(
+    (state) => state.auth
+  );
+
+  const [errors, setErrors] = useState([]);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
     location: "",
+    dob: "",
+    instagramUrl: "",
+    phoneNumber: "",
   });
 
   const [userType, setUserType] = useState("");
 
-  const { name, email, password, location } = formData;
+  const { name, email, password, location, dob, phoneNumber, instagramUrl } =
+    formData;
 
   useEffect(() => {
+    if (user) {
+      // navigate to dashboard;
+      navigate("/dashboard");
+    }
     if (isSuccess) {
+      // dispatch reset and navigate to login
       dispatch(reset());
       navigate("/login");
+      setFormData({
+        name: "",
+        email: "",
+        password: "",
+        location: "",
+        dob: "",
+        instagramUrl: "",
+        phoneNumber: "",
+      });
     }
-  }, [isLoading, isSuccess]);
+    if (isError) {
+      console.log("errors");
+      setErrors(message.errors);
+    }
+  }, [isLoading, isError, message, user]);
 
   const handleChange = (e) => {
     setFormData((prevState) => ({
@@ -47,9 +73,25 @@ const Register = () => {
       password,
       userType,
       location,
+      dob,
+      instagramUrl,
+      phoneNumber,
     };
-    console.log(dataToSubmit);
+
     dispatch(createUser(dataToSubmit));
+  };
+
+  const renderError = (field) => {
+    let item = null;
+    errors.forEach((error, index) => {
+      if (error.field === field) {
+        item = error;
+      }
+    });
+
+    if (item) {
+      return <p className="error"> {item.message} </p>;
+    }
   };
 
   return (
@@ -58,75 +100,120 @@ const Register = () => {
 
       <div className="form-wrapper">
         <form onSubmit={handleSubmit}>
-          <div className="input-group">
-            <label htmlFor="name">Name</label>
-            <input
-              type="text"
-              name="name"
-              value={name}
-              placeholder="Enter name"
-              onChange={handleChange}
-            />
-          </div>
+          <div className="input-wrapper">
+            <div className="input-group">
+              <label htmlFor="name">Name</label>
+              <input
+                type="text"
+                name="name"
+                value={name}
+                placeholder="Enter name"
+                onChange={handleChange}
+              />
+              {errors.length > 0 ? renderError("name") : null}
+            </div>
 
-          <div className="input-group">
-            <label htmlFor="email">Email</label>
-            <input
-              type="text"
-              name="email"
-              value={email}
-              placeholder="Enter your email"
-              onChange={handleChange}
-            />
-          </div>
+            <div className="input-group">
+              <label htmlFor="email">Email</label>
+              <input
+                type="text"
+                name="email"
+                value={email}
+                placeholder="Enter your email"
+                onChange={handleChange}
+              />
 
-          <div className="input-group">
-            <label htmlFor="name">Password</label>
-            <input
-              type="password"
-              name="password"
-              value={password}
-              placeholder="Enter password"
-              onChange={handleChange}
-            />
-          </div>
+              {errors.length > 0 ? renderError("email") : null}
+            </div>
 
-          <div className="input-group">
-            <label htmlFor="location">Location</label>
-            <select name="location" onChange={handleChange}>
-              {cities.map((city, index) => (
-                <option value={city} key={index}>
-                  {" "}
-                  {city}{" "}
-                </option>
-              ))}
-            </select>
-          </div>
+            <div className="input-group">
+              <label htmlFor="name">Password</label>
+              <input
+                type="password"
+                name="password"
+                value={password}
+                placeholder="Enter password"
+                onChange={handleChange}
+              />
+              {errors.length > 0 ? renderError("password") : null}
+            </div>
 
-          <div className="input-group">
-            <label htmlFor="">Whieh one are you?</label>
-            <div className="label-wrapper">
-              <label>
-                Photographer
-                <input
-                  type="radio"
-                  name="userType"
-                  value="photographer"
-                  checked={userType === "photographer"}
-                  onChange={handleUserTypeChange}
-                />
-              </label>
+            <div className="input-group">
+              <label htmlFor="dob">Date of Birth</label>
+              <input
+                type="date"
+                name="dob"
+                value={dob}
+                onChange={handleChange}
+              />
+              {errors.length > 0 ? renderError("dob") : null}
+            </div>
 
-              <label>
-                Model
-                <input
-                  type="radio"
-                  name="userType"
-                  value="model"
-                  checked={userType === "model"}
-                  onChange={handleUserTypeChange}
-                />
-              </label>
+            <div className="input-group">
+              <label htmlFor="phoneNumber">Phone Number</label>
+              <input
+                type="text"
+                name="phoneNumber"
+                value={phoneNumber}
+                placeholder="Enter your phone number"
+                onChange={handleChange}
+              />
+              {errors.length > 0 ? renderError("phoneNumber") : null}
+            </div>
+
+            <div className="input-group">
+              <label htmlFor="instagramUrl">Instagram Url</label>
+              <input
+                type="text"
+                name="instagramUrl"
+                value={instagramUrl}
+                placeholder="Enter your instagram url"
+                onChange={handleChange}
+              />
+              {errors.length > 0 ? renderError("instagramUrl") : null}
+            </div>
+
+            <div className="input-group">
+              <label htmlFor="location">Location</label>
+              <select name="location" onChange={handleChange}>
+                <option value="">--select location ---</option>
+                {cities.map((city, index) => (
+                  <option value={city} key={index}>
+                    {" "}
+                    {city}{" "}
+                  </option>
+                ))}
+              </select>
+
+              {errors.length > 0 ? renderError("location") : null}
+            </div>
+
+            <div className="input-group">
+              <label htmlFor="">Whieh one are you?</label>
+              <div className="label-wrapper">
+                <label>
+                  Photographer
+                  <input
+                    type="radio"
+                    name="userType"
+                    value="photographer"
+                    checked={userType === "photographer"}
+                    onChange={handleUserTypeChange}
+                  />
+                </label>
+
+                <label>
+                  Model
+                  <input
+                    type="radio"
+                    name="userType"
+                    value="model"
+                    checked={userType === "model"}
+                    onChange={handleUserTypeChange}
+                  />
+                </label>
+              </div>
+              {errors.length > 0 ? renderError("userType") : null}
             </div>
           </div>
           <button type="submit">Submit</button>

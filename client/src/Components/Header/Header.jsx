@@ -23,10 +23,6 @@ const Header = () => {
     if (isSuccess) {
       dispatch(reset());
     }
-    if (!user) {
-      // navigate to login
-      navigate("/login");
-    }
   }, [isLoading, isSuccess, user]);
 
   const handleLogout = () => {
@@ -37,8 +33,8 @@ const Header = () => {
     <div>
       <header className="main-header">
         <div className="container">
-          <Link to="/">
-            <h1>Logo</h1>
+          <Link to="/" className="logo">
+            <h1>StarCast</h1>
           </Link>
 
           <nav>
