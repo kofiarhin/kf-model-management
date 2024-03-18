@@ -8,6 +8,7 @@ import Header from "./Components/Header/Header";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import Models from "./Pages/Models/Models";
 import Castings from "./Pages/Castings/Castings";
+import Messages from "./Pages/Messages/Messages";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/models" element={<Models />} />
           <Route path="/castings" element={<Castings />} />
+          <Route path="/messages" element={<Messages />} />
         </Routes>
       </Router>
     </div>

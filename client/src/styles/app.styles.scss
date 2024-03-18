@@ -24,6 +24,7 @@ a {
 .heading {
   font-size: 2rem;
   font-weight: 400;
+  text-transform: capitalize;
   &.center {
     text-align: center;
   }
@@ -38,10 +39,19 @@ a {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
   }
+
+  // typography
   .error {
     color: red;
     font-size: 0.8rem;
   }
+  .text-large {
+    font-size: 1.4rem;
+    &.center {
+      text-align: center;
+    }
+  }
+
   label,
   select,
   input {

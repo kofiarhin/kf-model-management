@@ -1,18 +1,11 @@
 import "./header.styles.scss";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logoutUser, reset } from "../../features/auth/authSlice";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import NavLinks from "../NavLinks/NavLinks";
-
-const photographerLinks = () => {
-  return (
-    <>
-      <Link to="/models"> Models </Link>
-    </>
-  );
-};
+import NavLinks from "./NavLinks/NavLinks";
+import { linkClass } from "./HeaderHelper/headerHelper";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -40,14 +33,31 @@ const Header = () => {
           <nav>
             {user ? (
               <>
+                <NavLink to="/" className={linkClass}>
+                  Home
+                </NavLink>
+                <NavLink to="/dashboard" className={linkClass}>
+                  Dashboard
+                </NavLink>
+
+                <NavLink to="/messages" className={linkClass}>
+                  Messages
+                </NavLink>
                 <NavLinks user={user} />
                 <button onClick={handleLogout}>Logout</button>
               </>
             ) : (
               <>
-                <Link to="/">Home</Link>
-                <Link to="/login">Login</Link>
-                <Link to="/register">Register</Link>
+                <NavLink to="/" className={linkClass}>
+                  {" "}
+                  Home{" "}
+                </NavLink>
+                <NavLink to="/login" className={linkClass}>
+                  Login
+                </NavLink>
+                <NavLink to="/register" className={linkClass}>
+                  Register
+                </NavLink>
               </>
             )}
           </nav>

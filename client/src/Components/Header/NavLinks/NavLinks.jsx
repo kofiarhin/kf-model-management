@@ -1,10 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import React from "react";
+import { linkClass } from "../HeaderHelper/headerHelper";
 
 const PhotographerLinks = () => {
   return (
     <>
-      <Link to="/models"> Models</Link>
+      <NavLink to="/models" class={linkClass}>
+        {" "}
+        models{" "}
+      </NavLink>
     </>
   );
 };
@@ -12,7 +16,9 @@ const PhotographerLinks = () => {
 const ModelLinks = () => {
   return (
     <>
-      <Link to="/castings"> Castings</Link>
+      <NavLink to="/castings" class={linkClass}>
+        Castings
+      </NavLink>
     </>
   );
 };

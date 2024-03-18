@@ -11,6 +11,11 @@
       display: inline-block;
       margin-left: 1rem;
       cursor: pointer;
+      padding-bottom: 0.5rem;
+      &.active {
+        color: red;
+        font-weight: 500;
+      }
     }
     nav button {
       margin-left: 1rem;
