@@ -7,6 +7,10 @@ const castingSchema = new mongoose.Schema(
       required: true,
       ref: "User",
     },
+    title: {
+      type: String,
+      required: true,
+    },
     location: {
       type: String,
       required: true,
@@ -22,6 +26,11 @@ const castingSchema = new mongoose.Schema(
     message: {
       type: String,
       required: true,
+    },
+    paid: {
+      type: Boolean,
+      required: true,
+      default: false,
     },
   },
   { timestamps: true }

@@ -2,7 +2,11 @@ const User = require("../model/userModel");
 const bcrypt = require("bcryptjs");
 const getUsers = async (req, res, next) => {
   try {
-    const users = await User.find().sort({ createdAt: 1 });
+    const query = req.query;
+
+    const users = query
+      ? await User.find(query).sort({ createdAt: 1 })
+      : await User.find().sort({ createdAt: 1 });
     return res.status(200).json(users);
   } catch (error) {
     next(error);

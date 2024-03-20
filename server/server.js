@@ -5,6 +5,7 @@ const connectDB = require("./config/db");
 const { errorHandler } = require("./middleware/errorMiddleware");
 const userRoutes = require("./routes/userRoutes");
 const authRoutes = require("./routes/authRoutes");
+const castingRoutes = require("./routes/castingRoutes");
 const { verifyAdmin } = require("./middleware/authMiddleware");
 const cookieParser = require("cookie-parser");
 
@@ -22,6 +23,7 @@ connectDB();
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/check", verifyAdmin);
+app.use("/api/castings", castingRoutes);
 
 // error handler
 app.use(errorHandler);

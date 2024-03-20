@@ -1,6 +1,6 @@
 #get Users
 ###
-GET http://localhost:5000/api/users
+GET http://localhost:5000/api/users?userType=photographer
 
 
 #get users
@@ -45,3 +45,39 @@ Content-Type: application/json
     "instagramUrl": "some instagram handle", 
     "userType": "photographer"
 }
+
+# create casting
+###
+POST http://localhost:5000/api/castings
+Content-Type: application/json
+
+{
+    "userId": "65f789febcb5c83891a1962a",
+    "title": "some casting title",
+    "location": "Manchester",
+    "startDate": "2024-07-04",
+    "endDate": "2024-07-14",
+    "message": "some message", 
+    "paid": true 
+}
+
+#get castings
+###
+GET http://localhost:5000/api/castings
+
+# get single casting
+###
+GET http://localhost:5000/api/castings/65fad3cfb54c02a9fd5fa6dc
+
+# update casting
+###
+PUT http://localhost:5000/api/castings/65fad3cfb54c02a9fd5fa6dc
+Content-Type: application/json
+
+{
+    "title": "updated Casting"
+}
+
+# delete casting
+###
+DELETE http://localhost:5000/api/castings/65f9a76d003ad3e25b7eb4e4
