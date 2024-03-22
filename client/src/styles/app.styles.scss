@@ -30,6 +30,13 @@ a {
   }
 }
 
+.text-wrapper {
+  text-align: center;
+  &.flex {
+    display: flex;
+  }
+}
+
 .form-wrapper {
   width: 800px;
   max-width: 90%;
@@ -50,6 +57,10 @@ a {
     &.center {
       text-align: center;
     }
+  }
+
+  .text-center {
+    text-align: center;
   }
 
   label,
@@ -96,5 +107,11 @@ a {
     padding: 1rem 0rem;
     font-size: 1rem;
     cursor: pointer;
+  }
+}
+
+@media (max-width: 800px) {
+  .heading {
+    font-size: 1.2rem;
   }
 }

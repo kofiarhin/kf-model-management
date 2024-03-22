@@ -5,7 +5,7 @@ import { linkClass } from "../HeaderHelper/headerHelper";
 const PhotographerLinks = () => {
   return (
     <>
-      <NavLink to="/models" class={linkClass}>
+      <NavLink to="/models" className={linkClass}>
         {" "}
         models{" "}
       </NavLink>
@@ -16,7 +16,7 @@ const PhotographerLinks = () => {
 const ModelLinks = () => {
   return (
     <>
-      <NavLink to="/castings" class={linkClass}>
+      <NavLink to="/castings" className={linkClass}>
         Castings
       </NavLink>
     </>

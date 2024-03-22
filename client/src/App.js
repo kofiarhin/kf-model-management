@@ -1,4 +1,6 @@
 import "./styles/app.styles.scss";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React from "react";
 import Home from "./Pages/Home/Home";
@@ -9,6 +11,7 @@ import Dashboard from "./Pages/Dashboard/Dashboard";
 import Models from "./Pages/Models/Models";
 import Castings from "./Pages/Castings/Castings";
 import Messages from "./Pages/Messages/Messages";
+import Upload from "./Pages/Upload/Upload";
 
 const App = () => {
   return (
@@ -22,9 +25,10 @@ const App = () => {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/models" element={<Models />} />
           <Route path="/castings" element={<Castings />} />
-          <Route path="/messages" element={<Messages />} />
+          <Route path="/upload" element={<Upload />} />
         </Routes>
       </Router>
+      <ToastContainer />
     </div>
   );
 };

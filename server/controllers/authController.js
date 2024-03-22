@@ -37,7 +37,7 @@ const registerUser = async (req, res, next) => {
         "any.required": "Location is required.",
         "string.empty": "Location cannot be empty.",
       }),
-      phoneNumber: joi.string().required().messages({
+      phoneNumber: joi.number().required().messages({
         "any.required": "Phone number is required.",
         "string.empty": "Phone number cannot be empty.",
       }),
@@ -70,6 +70,8 @@ const registerUser = async (req, res, next) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
     const user = await User.create({ password: hashedPassword, ...rest });
+
+    console.log(user);
 
     if (!user) {
       res.status(400);

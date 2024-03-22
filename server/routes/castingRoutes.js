@@ -1,5 +1,6 @@
 const Casting = require("../model/castingModel");
 const { Router } = require("express");
+const { verifyUser } = require("../middleware/authMiddleware");
 const {
   createCasting,
   getCastings,
@@ -18,9 +19,9 @@ router.get("/", getCastings);
 router.get("/:id", getCasting);
 
 // update casting
-router.put("/:id", updateCasting);
+router.put("/:id", verifyUser, updateCasting);
 
 // delete casting
-router.delete("/:id", deleteCasting);
+router.delete("/:id", verifyUser, deleteCasting);
 
 module.exports = router;

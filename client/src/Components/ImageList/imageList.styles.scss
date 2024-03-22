@@ -1,0 +1,22 @@
+.image-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  .image-unit {
+    height: 300px;
+  }
+  img {
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+  }
+}
+
+@media (max-width: 800px) {
+  .image-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    .image-unit {
+      height: 250px;
+    }
+  }
+}

@@ -81,3 +81,26 @@ Content-Type: application/json
 # delete casting
 ###
 DELETE http://localhost:5000/api/castings/65f9a76d003ad3e25b7eb4e4
+
+#upload image
+###
+POST http://localhost:5000/api/images/65f9a76d003ad3e25b7eb4e4
+Content-Type: application/json
+
+{
+    "images": ["image.6.jpg", "image7.jpg"]
+}
+
+
+#delete image
+###
+DELETE http://localhost:5000/api/images/65f9a76d003ad3e25b7eb4e4
+Content-Type: application/json
+
+{
+    "url": "image3.jpg"
+}
+
+# get images
+###
+GET http://localhost:5000/api/images/65f9a76d003ad3e25b7eb4e4
