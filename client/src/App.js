@@ -12,6 +12,7 @@ import Models from "./Pages/Models/Models";
 import Castings from "./Pages/Castings/Castings";
 import Messages from "./Pages/Messages/Messages";
 import Upload from "./Pages/Upload/Upload";
+import CreateCasting from "./Pages/CreateCasting/CreateCasting";
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
           <Route path="/models" element={<Models />} />
           <Route path="/castings" element={<Castings />} />
           <Route path="/upload" element={<Upload />} />
+          <Route path="/castings/create" element={<CreateCasting />} />
         </Routes>
       </Router>
       <ToastContainer />

@@ -6,8 +6,9 @@ const Models = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await fetch("/api/users?userType=model");
+        const res = await fetch("/api/users/mergedData?userType=model");
         const data = await res.json();
+        console.log(data);
         if (res.ok) {
           setUsers(data);
         }

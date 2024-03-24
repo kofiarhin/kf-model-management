@@ -1,11 +1,14 @@
 const User = require("../model/userModel");
+const Image = require("../model/imageModel");
 const bcrypt = require("bcryptjs");
+
+// get users
 const getUsers = async (req, res, next) => {
   try {
     const query = req.query;
 
     const users = query
-      ? await User.find(query).sort({ createdAt: 1 })
+      ? await User.find(query).sort({ createdAt: 1 }) // get merged data
       : await User.find().sort({ createdAt: 1 });
     return res.status(200).json(users);
   } catch (error) {
@@ -90,10 +93,40 @@ const deleteUser = async (req, res, next) => {
   }
 };
 
+const getMergedData = async (req, res, next) => {
+  const { userType } = req.query;
+  try {
+    const users = await User.find({ userType: "model" }).select("-password");
+    const images = await Image.find();
+    let mergedData = [];
+
+    if (userType == "model") {
+      mergedData = users.map((user) => {
+        const userImages = images.filter((image) =>
+          image.userId.equals(user._id)
+        );
+        return {
+          ...user._doc,
+          images: userImages[0].images,
+        };
+      });
+    }
+
+    if (userType === "photographer") {
+      mergedData = ["photograher 1", "photographer 2"];
+    }
+
+    return res.json(mergedData);
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
   getUsers,
   createUser,
   getUser,
   updateUser,
   deleteUser,
+  getMergedData,
 };

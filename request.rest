@@ -5,7 +5,7 @@ GET http://localhost:5000/api/users?userType=photographer
 
 #get users
 ###
-GET http://localhost:5000/api/users/65f6cdb7049575988407e425
+GET http://localhost:5000/api/users/65fdd921da1528c2b7a6e73b
 
 
 # delete user
@@ -18,7 +18,7 @@ POST http://localhost:5000/api/auth/login
 Content-Type: application/json
 
 {
-    "email": "kofiarhin@gmail.com",
+    "email": "stacy@gmail.com",
     "password": "password"
 }
 
@@ -103,4 +103,8 @@ Content-Type: application/json
 
 # get images
 ###
-GET http://localhost:5000/api/images/65f9a76d003ad3e25b7eb4e4
+GET http://localhost:5000/api/images/65fdd921da1528c2b7a6e73b
+
+#merged data
+###
+GET http://localhost:5000/api/users/mergeddata?userType=model

@@ -40,9 +40,6 @@ const Header = () => {
                   Dashboard
                 </NavLink>
 
-                <NavLink to="/messages" className={linkClass}>
-                  Messages
-                </NavLink>
                 <NavLinks user={user} />
                 <button onClick={handleLogout}>Logout</button>
               </>

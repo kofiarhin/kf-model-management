@@ -15,7 +15,7 @@ export const uploadImage = async (file, folder = "test") => {
   });
 
   if (!response.ok) {
-    throw new Error("something went wrong");
+    throw new Error("image not uploaded");
   }
 
   const data = await response.json();

@@ -1,0 +1,32 @@
+.casting-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 2rem 0rem;
+  .casting-unit {
+    height: 300px;
+    .img-container {
+      height: 300px;
+    }
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .casting-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .casting-wrapper {
+    display: block;
+    .casting-unit {
+      margin-bottom: 1rem;
+    }
+  }
+}

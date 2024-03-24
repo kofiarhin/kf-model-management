@@ -5,15 +5,20 @@ const {
   getUser,
   updateUser,
   deleteUser,
+  getMergedData,
 } = require("../controllers/userController");
 const { verifyUser } = require("../middleware/authMiddleware");
 const router = Router();
 
 router.get("/", getUsers);
-// create user
-router.post("/", createUser);
+
+// merged data
+router.get("/mergeddata", getMergedData);
 // get user
 router.get("/:id", getUser);
+
+// create user
+router.post("/", createUser);
 
 // update user
 router.put("/:id", verifyUser, updateUser);

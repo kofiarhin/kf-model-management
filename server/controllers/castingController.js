@@ -6,23 +6,17 @@ const { validateInput } = require("../utils/helper");
 const createCasting = async (req, res, next) => {
   try {
     const castingSchema = joi.object({
-      userId: joi.string().required().messages({
-        "any.required": "Not Authorized",
-        "string.empty": "Not authorized",
-      }),
       title: joi.string().required().messages({
         "any.required": "Title is required.",
         "string.empty": "Title cannot be empty.",
       }),
       startDate: joi.date().required().messages({
-        "any.required": "start Date is required.",
-        "string.empty": "Start Date cannot be empty.",
-      }),
-      endDate: joi.date().required().messages({
         "any.required": "End Date is required.",
         "string.empty": "End Date cannot be empty.",
-        "any.invalid": "Date must be a valid date",
-        "string.notWhitespace": "End Date cannot be whitespace only.",
+      }),
+      endDate: joi.required().messages({
+        "any.required": "End Date is required.",
+        "string.empty": "End Date cannot be empty.",
       }),
       paid: joi.boolean().required().messages({
         "any.required": "Paid is required",
@@ -31,6 +25,10 @@ const createCasting = async (req, res, next) => {
       message: joi.string().required().messages({
         "any.required": "Message is required.",
         "string.empty": "Message cannot be empty.",
+      }),
+      image: joi.string().required().messages({
+        "any.required": "image is required.",
+        "string.empty": "image cannot be empty.",
       }),
       location: joi.string().required().messages({
         "any.required": "Loccation is required.",
@@ -44,7 +42,7 @@ const createCasting = async (req, res, next) => {
       throw new Validation(400, errors, "validation error");
     }
 
-    const casting = new Casting(req.body);
+    const casting = new Casting({ userId: req.user._id, ...req.body });
     await casting.save();
     return res.json(casting);
   } catch (error) {

@@ -10,7 +10,7 @@ const {
 } = require("../controllers/castingController");
 const router = Router();
 
-router.post("/", createCasting);
+router.post("/", verifyUser, createCasting);
 
 // get all castings
 router.get("/", getCastings);
