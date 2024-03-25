@@ -15,6 +15,7 @@ import Upload from "./Pages/Upload/Upload";
 import CreateCasting from "./Pages/CreateCasting/CreateCasting";
 import Model from "./Pages/Model/Model";
 import Casting from "./Pages/Casting/Casting";
+import Footer from "./Components/Footer/Footer";
 
 const App = () => {
   return (
@@ -33,6 +34,7 @@ const App = () => {
           <Route path="/upload" element={<Upload />} />
           <Route path="/castings/create" element={<CreateCasting />} />
         </Routes>
+        <Footer />
       </Router>
       <ToastContainer />
     </div>
