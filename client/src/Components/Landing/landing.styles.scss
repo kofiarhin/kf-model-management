@@ -27,9 +27,9 @@
 
     .content-wrapper {
       width: 700px;
-      max-width: 80%;
+      max-width: 100%;
       h2 {
-        margin-bottom: 3rem;
+        margin-bottom: 2rem;
         line-height: 1;
         font-size: 3rem;
       }
@@ -46,6 +46,18 @@
     height: 100%;
     img {
       width: 100%;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  #landing .overlay {
+    padding-left: 30px;
+    .content-wrapper {
+      width: 100%;
+      h2 {
+        font-size: 1.8rem;
+      }
     }
   }
 }
