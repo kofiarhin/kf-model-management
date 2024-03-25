@@ -49,9 +49,14 @@ const Header = () => {
                   {" "}
                   Home{" "}
                 </NavLink>
+
                 <NavLink to="/models" className={linkClass}>
                   {" "}
                   Models{" "}
+                </NavLink>
+                <NavLink to="/castings" className={linkClass}>
+                  {" "}
+                  Castings
                 </NavLink>
                 <NavLink to="/login" className={linkClass}>
                   Login
