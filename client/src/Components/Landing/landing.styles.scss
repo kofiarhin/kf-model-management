@@ -2,7 +2,9 @@
 #landing {
   margin-bottom: 1rem;
   position: relative;
-  height: img {
+  height: 80vh;
+
+  img {
     height: 100%;
     object-fit: cover;
   }
@@ -19,8 +21,26 @@
       rgba(0, 0, 0, 0.35547994269340977) 100%
     );
     display: flex;
-    justify-content: center;
     align-items: center;
+    padding-left: 100px;
+    color: white;
+
+    .content-wrapper {
+      width: 700px;
+      max-width: 80%;
+      h2 {
+        margin-bottom: 3rem;
+        line-height: 1;
+        font-size: 3rem;
+      }
+      a {
+        display: inline-block;
+        padding: 1rem 2rem;
+        color: whtie;
+        background-color: $red;
+        color: white;
+      }
+    }
   }
   .img-container {
     height: 100%;
