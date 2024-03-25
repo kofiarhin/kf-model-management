@@ -1,15 +1,19 @@
+import React from "react";
 import { Link } from "react-router-dom";
+import "./landing.styles.scss";
 
 const Landing = () => {
   return (
-    <div className="img-wrapper">
+    <div id="landing">
       <div className="overlay">
         <div className="cta-wrapper">
-          <Link to="/register">Become A Model</Link>
-          <Link to="/register">Post A Cast</Link>
+          <Link to="/login">Become a Model</Link>
+          <Link to="/login">Post Casting</Link>
         </div>
       </div>
-      <img src="/images/landing.jpg" alt="" />
+      <div className="img-container">
+        <img src="/images/main.jpg" alt="" />
+      </div>
     </div>
   );
 };

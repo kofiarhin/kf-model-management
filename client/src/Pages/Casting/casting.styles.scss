@@ -1,0 +1,16 @@
+.cast-wrapper {
+  gap: 20px;
+  p {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  .img-wrapper {
+    height: 400px;
+    width: 300px;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}

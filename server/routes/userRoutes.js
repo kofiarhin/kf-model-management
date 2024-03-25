@@ -13,7 +13,7 @@ const router = Router();
 router.get("/", getUsers);
 
 // merged data
-router.get("/mergeddata", getMergedData);
+router.get("/merged_data", getMergedData);
 // get user
 router.get("/:id", getUser);
 

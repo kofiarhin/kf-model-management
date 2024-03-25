@@ -44,14 +44,20 @@ const createUser = async (req, res, next) => {
 // get user
 const getUser = async (req, res, next) => {
   try {
-    const user = await User.findById(req.params.id).select({ password: 0 });
+    const user = await User.findById(req.params.id).select("-password");
 
     if (!user) {
       res.status(400);
       throw new Error("user not found");
     }
 
-    return res.status(200).json(user);
+    if (user.userType == "model") {
+      const userImage = await Image.findOne({ userId: user._id });
+      console.log(userImage.images);
+      return res.status(200).json({ ...user._doc, images: userImage.images });
+    }
+
+    return res.json({ message: "get user" });
   } catch (error) {
     next(error);
   }
@@ -62,7 +68,6 @@ const updateUser = async (req, res, next) => {
   try {
     const id = req.params.id;
 
-    console.log(req.body);
     const user = await User.findByIdAndUpdate(
       id,
       { $set: req.body },

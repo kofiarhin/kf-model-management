@@ -18,7 +18,7 @@ POST http://localhost:5000/api/auth/login
 Content-Type: application/json
 
 {
-    "email": "stacy@gmail.com",
+    "email": "kofiarhin@gmail.com",
     "password": "password"
 }
 
@@ -108,3 +108,19 @@ GET http://localhost:5000/api/images/65fdd921da1528c2b7a6e73b
 #merged data
 ###
 GET http://localhost:5000/api/users/mergeddata?userType=model
+
+
+# cerate casting new
+###
+POST  http://localhost:5000/api/castings
+Content-Type: application/json
+
+{
+    "title": "some title",
+    "message": "some message",
+    "location": "sheffield",
+    "paid": false,
+    "startDate": "2024-11-11",
+    "endDate": "2024-12-22",
+    "image": "some image"
+}

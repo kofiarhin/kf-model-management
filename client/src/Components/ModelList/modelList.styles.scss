@@ -1,0 +1,36 @@
+.model-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px 0px;
+
+  .model-unit {
+    text-align: center;
+    p {
+      text-transform: capitalize;
+    }
+  }
+  .img-container {
+    height: 500px;
+    margin-bottom: 1rem;
+    img {
+      height: 100%;
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+}
+@media (max-width: 800px) {
+  .model-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .model-wrapper {
+    display: block;
+    .model-unit {
+      margin-bottom: 1rem;
+    }
+  }
+}

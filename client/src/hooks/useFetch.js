@@ -4,7 +4,6 @@ const useFetch = (url) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    console.log("get data");
     const getData = async () => {
       try {
         const res = await fetch(url);

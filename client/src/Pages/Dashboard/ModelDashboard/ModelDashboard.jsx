@@ -29,13 +29,13 @@ const ModelDashboard = () => {
   return (
     <div>
       <h1 className="heading center"> Welcome {user.name} </h1>
-      <div className="text-wrapper center">
+      <div className="cta-wrapper center">
         <Link to="/upload" className="text-center">
           Upload Image
         </Link>
-
-        {images.length > 0 && <ImageList data={images} />}
       </div>
+
+      <div>{images.length > 0 && <ImageList data={images} />}</div>
     </div>
   );
 };

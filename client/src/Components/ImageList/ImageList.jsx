@@ -4,9 +4,9 @@ const ImageList = ({ data }) => {
     <div className="container">
       <div className="image-wrapper">
         {data.map((item, index) => (
-          <div className="image-unit" key={index}>
+          <a href={item} target="_blank" className="image-unit" key={index}>
             <img src={item} alt="" />
-          </div>
+          </a>
         ))}
       </div>
     </div>
