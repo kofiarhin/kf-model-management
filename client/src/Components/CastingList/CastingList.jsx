@@ -2,19 +2,15 @@ import "./castingList.styles.scss";
 import { Link } from "react-router-dom";
 import { formatDate } from "../../utils/helper";
 
-const CastingList = ({ userId, data }) => {
-  const castingData = userId
-    ? data.filter((item) => item.userId.equals(userId))
-    : data;
-
+const CastingList = ({ data }) => {
   return (
     <div className="container">
       <div className="casting-wrapper">
-        {castingData.map((casting, index) => {
+        {data.map((casting, index) => {
           return (
             <div key={index} className="casting-unit">
               <div className="img-container">
-                <img src={casting.image} alt="" />
+                <img src={casting.images[0]} alt="" />
               </div>
               <div className="text-content">
                 <h1 className="heading">

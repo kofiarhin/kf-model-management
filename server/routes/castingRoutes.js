@@ -7,6 +7,7 @@ const {
   updateCasting,
   deleteCasting,
   getCasting,
+  getUserCastings,
 } = require("../controllers/castingController");
 const router = Router();
 
@@ -17,6 +18,9 @@ router.get("/", getCastings);
 
 // get single casting
 router.get("/:id", getCasting);
+
+// get user routing
+router.get("/user/:id", getUserCastings);
 
 // update casting
 router.put("/:id", verifyUser, updateCasting);

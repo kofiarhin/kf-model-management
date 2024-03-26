@@ -19,7 +19,7 @@ const CreateCasting = () => {
 
   const { title, message, location, startDate, endDate, paid } = formData;
 
-  const [file, setFile] = useState(null);
+  const [files, setFiles] = useState(null);
 
   useEffect(() => {
     if (!user) {
@@ -36,14 +36,19 @@ const CreateCasting = () => {
   };
 
   const handleFileChange = (e) => {
-    setFile(e.target.files[0]);
+    setFiles(e.target.files);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const url = await uploadImage(file, "test-dev");
+      const urlArray = await Promise.all(
+        Object.values(files).map((item) => {
+          const url = uploadImage(item, "test-dev");
+          return url;
+        })
+      );
 
       const dataToSubmit = {
         title,
@@ -52,7 +57,7 @@ const CreateCasting = () => {
         paid,
         startDate,
         endDate,
-        image: url,
+        images: urlArray,
       };
       const res = await fetch("/api/castings", {
         headers: {
@@ -119,8 +124,8 @@ const CreateCasting = () => {
           </div>
 
           <div className="input-group">
-            <label htmlFor="files">Add Image</label>
-            <input type="file" onChange={handleFileChange} />
+            <label htmlFor="files">Upload Reference Images</label>
+            <input type="file" onChange={handleFileChange} multiple />
           </div>
 
           <div className="input-group">

@@ -122,5 +122,13 @@ Content-Type: application/json
     "paid": false,
     "startDate": "2024-11-11",
     "endDate": "2024-12-22",
-    "image": "some image"
+    "images": ["image 1", "image 2", "image3" ]
 }
+
+#get casting
+###
+GET http://localhost:5000/api/castings/6602e9ef1c130d40b1ee2f54
+
+# get casings
+###
+GET http://localhost:5000/api/castings/6602e9ef1c130d40b1ee2f54

@@ -26,7 +26,7 @@ const createCasting = async (req, res, next) => {
         "any.required": "Message is required.",
         "string.empty": "Message cannot be empty.",
       }),
-      image: joi.string().required().messages({
+      images: joi.array().required().messages({
         "any.required": "image is required.",
         "string.empty": "image cannot be empty.",
       }),
@@ -116,10 +116,25 @@ const deleteCasting = async (req, res, next) => {
   }
 };
 
+const getUserCastings = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const castings = await Casting.find({ userId: id });
+    if (!castings) {
+      res.status(400);
+      throw new Error("castings not found");
+    }
+    return res.json(castings);
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
   createCasting,
   getCastings,
   updateCasting,
   deleteCasting,
   getCasting,
+  getUserCastings,
 };

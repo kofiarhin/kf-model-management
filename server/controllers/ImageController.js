@@ -18,7 +18,6 @@ const getImages = async (req, res, next) => {
 
 // upload images
 const uploadImage = async (req, res, next) => {
-  console.log(req.body);
   try {
     const check = await Image.findOne({ userId: req.params.id });
 

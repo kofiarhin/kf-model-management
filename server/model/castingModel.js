@@ -32,10 +32,12 @@ const castingSchema = new mongoose.Schema(
       required: true,
       default: false,
     },
-    image: {
-      type: String,
-      required: true,
-    },
+    images: [
+      {
+        type: String,
+        required: true,
+      },
+    ],
     featured: {
       type: Boolean,
       default: false,
