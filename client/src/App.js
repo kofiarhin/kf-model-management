@@ -16,12 +16,16 @@ import CreateCasting from "./Pages/CreateCasting/CreateCasting";
 import Model from "./Pages/Model/Model";
 import Casting from "./Pages/Casting/Casting";
 import Footer from "./Components/Footer/Footer";
+import SideNav from "./Components/SideNav/SideNav";
+import { useSelector } from "react-redux";
 
 const App = () => {
+  const { isOpen } = useSelector((state) => state.navigation);
   return (
     <div>
       <Router>
         <Header />
+        <SideNav />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />

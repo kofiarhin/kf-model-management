@@ -1,3 +1,41 @@
 #footer {
-  padding: 2rem 0rem;
+  padding: 4rem 0rem;
+  background-color: black;
+  margin-top: 2rem;
+  .footer-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    color: white;
+    margin-bottom: 1rem;
+    ul {
+      list-style-type: none;
+      li {
+        margin-bottom: 1rem;
+        &.title {
+          margin-bottom: 2rem;
+          a {
+            font-size: 1.5rem;
+          }
+        }
+        a {
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+  a {
+    color: white;
+  }
+}
+
+@media (max-width: 840px) {
+  #footer {
+    .footer-wrapper {
+      grid-template-columns: repeat(2, 1fr);
+      .footer-unit {
+        margin-bottom: 1rem;
+      }
+    }
+  }
 }

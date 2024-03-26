@@ -6,6 +6,8 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import NavLinks from "./NavLinks/NavLinks";
 import { linkClass } from "./HeaderHelper/headerHelper";
+import { FaBars } from "react-icons/fa";
+import { open } from "../../features/Navigation/navigationSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -67,6 +69,7 @@ const Header = () => {
               </>
             )}
           </nav>
+          <FaBars className="menu" onClick={() => dispatch(open())} />
         </div>
       </header>
     </div>

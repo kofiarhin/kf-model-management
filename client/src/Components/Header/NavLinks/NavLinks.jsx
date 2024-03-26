@@ -3,24 +3,11 @@ import React from "react";
 import { linkClass } from "../HeaderHelper/headerHelper";
 
 const PhotographerLinks = () => {
-  return (
-    <>
-      <NavLink to="/models" className={linkClass}>
-        {" "}
-        models{" "}
-      </NavLink>
-    </>
-  );
+  return <></>;
 };
 
 const ModelLinks = () => {
-  return (
-    <>
-      <NavLink to="/castings" className={linkClass}>
-        Castings
-      </NavLink>
-    </>
-  );
+  return <></>;
 };
 
 const AdminLinks = () => {
