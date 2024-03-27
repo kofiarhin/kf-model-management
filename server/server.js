@@ -1,5 +1,6 @@
 const express = require("express");
 const dotenv = require("dotenv").config();
+const path = require("path");
 const app = express();
 const connectDB = require("./config/db");
 const { errorHandler } = require("./middleware/errorMiddleware");
@@ -26,6 +27,19 @@ app.use("/api/auth", authRoutes);
 app.use("/api/check", verifyAdmin);
 app.use("/api/castings", castingRoutes);
 app.use("/api/images", imageRoutes);
+
+if (process.env.NODE_ENV === "production") {
+  // define paths
+  const publicPath = path.join(__dirname, "./build");
+  const filePath = path.resolve(__dirname, ".", "build", "index.html");
+
+  app.use(express.static(publicPath));
+
+  app.get("*", (req, res) => {
+    // const fileUrl = path.resolve(__dirname, "server", "build");
+    return res.sendFile(filePath);
+  });
+}
 
 // error handler
 app.use(errorHandler);

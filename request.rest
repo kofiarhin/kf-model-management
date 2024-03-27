@@ -131,4 +131,4 @@ GET http://localhost:5000/api/castings/6602e9ef1c130d40b1ee2f54
 
 # get casings
 ###
-GET http://localhost:5000/api/castings/6602e9ef1c130d40b1ee2f54
+GET http://localhost:5000/api/castings
