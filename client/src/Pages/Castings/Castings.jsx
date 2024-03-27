@@ -1,9 +1,14 @@
 import useFetch from "../../hooks/useFetch";
 import CastingList from "../../Components/CastingList/CastingList";
 import { Link } from "react-router-dom";
+import Spinner from "../../Components/Spinner/Spinner";
 
 const Castings = () => {
-  const { data } = useFetch("/api/castings");
+  const { data, isLoading } = useFetch("/api/castings");
+
+  if (isLoading) {
+    return <Spinner />;
+  }
 
   return (
     <div className="container">

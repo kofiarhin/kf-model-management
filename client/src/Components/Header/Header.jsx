@@ -61,6 +61,9 @@ const Header = () => {
                 </NavLink>
               </>
             )}
+            <NavLink to="/about" className={linkClass}>
+              About Us
+            </NavLink>
           </nav>
           <FaBars className="menu" onClick={() => dispatch(open())} />
         </div>

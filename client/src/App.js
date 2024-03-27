@@ -19,6 +19,7 @@ import Footer from "./Components/Footer/Footer";
 import SideNav from "./Components/SideNav/SideNav";
 import { useSelector, useDispatch } from "react-redux";
 import { close } from "./features/Navigation/navigationSlice";
+import About from "./Pages/About/About";
 
 const App = () => {
   const { isOpen } = useSelector((state) => state.navigation);
@@ -35,6 +36,7 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/models" element={<Models />} />
+          <Route path="/about" element={<About />} />
           <Route path="/models/:id" element={<Model />} />
           <Route path="/castings" element={<Castings />} />
           <Route path="/castings/:id" element={<Casting />} />

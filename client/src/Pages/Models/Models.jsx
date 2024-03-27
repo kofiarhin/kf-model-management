@@ -1,8 +1,13 @@
 import ModelList from "../../Components/ModelList/ModelList";
 import useFetch from "../../hooks/useFetch";
+import Spinner from "../../Components/Spinner/Spinner";
 
 const Models = () => {
-  const { data } = useFetch("/api/users/merged_data?userType=model");
+  const { data, isLoading } = useFetch("/api/users/merged_data?userType=model");
+
+  if (isLoading) {
+    return <Spinner />;
+  }
   return (
     <>
       {data && (

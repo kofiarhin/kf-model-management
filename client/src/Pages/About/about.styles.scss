@@ -1,0 +1,12 @@
+#about {
+  min-height: 70vh;
+  .text-content {
+    width: 800px;
+    max-width: 100%;
+    text-align: center;
+    p {
+      font-size: 1.2rem;
+      line-height: 1.2;
+    }
+  }
+}
