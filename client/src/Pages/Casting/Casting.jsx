@@ -14,23 +14,24 @@ const Casting = () => {
       {data ? (
         <div className="container">
           <div className="cast-wrapper">
-            <h1 className="heading"> {data.title} </h1>
-
+            <h2 className="text-large"> {data.title} </h2>
+            <p>Requirement:</p>
             <p className="description"> {data.message} </p>
             <p> Start Date: {formatDate(data.startDate)} </p>
             <p> End Date: {formatDate(data.endDate)} </p>
             <p> Paid: {data.paid ? "Yes" : "No"} </p>
 
-            <p>Image reference for this casting</p>
-
-            <div className="img-wrapper">
-              {data.images.map((item, index) => {
-                return (
-                  <a href={item} target="_blank" key={index}>
-                    <img src={item} />
-                  </a>
-                );
-              })}
+            <div className="image-content">
+              <p>Image reference for this casting</p>
+              <div className="img-wrapper">
+                {data.images.map((item, index) => {
+                  return (
+                    <a href={item} target="_blank" key={index}>
+                      <img src={item} />
+                    </a>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>

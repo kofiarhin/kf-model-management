@@ -1,14 +1,25 @@
 .cast-wrapper {
   gap: 20px;
-  p {
-    font-size: 1.4rem;
-    margin-bottom: 0.5rem;
+  h2 {
+    margin-bottom: 1rem;
+    font-weight: 900;
   }
+  p {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+  }
+  .image-content {
+    padding: 2rem 0rem;
+    p {
+      margin-bottom: 1rem;
+    }
+  }
+
   .img-wrapper {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
-    padding: 2rem 0rem;
 
     img {
       height: 400px;
@@ -20,6 +31,9 @@
 
 @media (max-width: 860px) {
   .cast-wrapper {
+    p {
+      font-size: 1.2rem;
+    }
     .img-wrapper {
       grid-template-columns: repeat(2, 1fr);
     }

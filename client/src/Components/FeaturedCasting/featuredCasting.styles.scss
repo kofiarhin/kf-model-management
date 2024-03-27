@@ -53,5 +53,9 @@
 @media (max-width: 640px) {
   .featured-wrapper {
     display: block;
+    .featured-unit {
+      display: block;
+      margin-bottom: 1rem;
+    }
   }
 }
