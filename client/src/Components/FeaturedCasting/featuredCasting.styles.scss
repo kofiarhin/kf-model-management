@@ -2,9 +2,11 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+
   .featured-unit {
     position: relative;
     height: 500px;
+
     img {
       width: 100%;
       height: 100%;
@@ -30,9 +32,26 @@
       align-items: flex-end;
       color: white;
       font-size: 1rem;
+      .content {
+        h2 {
+          margin-bottom: 1rem;
+        }
+      }
     }
   }
   img {
     width: 100%;
+  }
+}
+
+@media (max-width: 860px) {
+  .featured-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .featured-wrapper {
+    display: block;
   }
 }

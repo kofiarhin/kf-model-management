@@ -10,9 +10,11 @@ const PhotographerDashboard = () => {
     <>
       {data && (
         <div>
-          <h1 className="heading center"> Welcome {user.name} </h1>
-          <div className="cta-wrapper center">
-            <Link to="/castings/create">Create Casting</Link>
+          <div className="flex-wrapper">
+            <h1 className="heading center"> Welcome {user.name} </h1>
+            <div className="cta-wrapper center">
+              <Link to="/castings/create">Create Casting</Link>
+            </div>
           </div>
           <CastingList user={user._id} data={data} />
         </div>

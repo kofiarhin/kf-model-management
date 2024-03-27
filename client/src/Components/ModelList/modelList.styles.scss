@@ -6,8 +6,14 @@
 
   .model-unit {
     text-align: center;
+    display: block;
+    h2 {
+      margin-bottom: 0.5rem;
+      text-transform: capitalize;
+    }
     p {
       text-transform: capitalize;
+      font-size: 1.2rem;
     }
   }
   .img-container {
@@ -20,17 +26,17 @@
     }
   }
 }
-@media (max-width: 800px) {
+@media (max-width: 860px) {
   .model-wrapper {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 640px) {
   .model-wrapper {
     display: block;
     .model-unit {
-      margin-bottom: 1rem;
+      margin-bottom: 2rem;
     }
   }
 }

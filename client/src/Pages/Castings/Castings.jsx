@@ -6,7 +6,7 @@ const Castings = () => {
   const { data } = useFetch("/api/castings");
 
   return (
-    <div>
+    <div className="container">
       <Link to="/castings">
         <h1 className="heading center">Castings</h1>
       </Link>

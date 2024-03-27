@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect } from "react";
 import "./app.styles.scss";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -17,10 +17,13 @@ import Model from "./Pages/Model/Model";
 import Casting from "./Pages/Casting/Casting";
 import Footer from "./Components/Footer/Footer";
 import SideNav from "./Components/SideNav/SideNav";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { close } from "./features/Navigation/navigationSlice";
 
 const App = () => {
   const { isOpen } = useSelector((state) => state.navigation);
+  const dispatch = useDispatch();
+
   return (
     <div>
       <Router>

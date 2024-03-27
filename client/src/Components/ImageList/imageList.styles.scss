@@ -12,11 +12,22 @@
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 860px) {
   .image-wrapper {
     grid-template-columns: repeat(2, 1fr);
     .image-unit {
       height: 300px;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .image-wrapper {
+    display: block;
+    .image-unit {
+      height: 500px;
+      display: block;
+      margin-bottom: 2rem;
     }
   }
 }

@@ -19,7 +19,7 @@ const SideNav = () => {
   return (
     <div id="sidenav" className={isOpen ? "active" : ""}>
       <FaTimes onClick={() => dispatch(close())} className="close" />
-      <nav>
+      <nav onClick={() => dispatch(close())}>
         <NavLink to="/models" className={linkClass}>
           Models
         </NavLink>

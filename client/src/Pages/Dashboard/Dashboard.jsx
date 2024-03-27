@@ -15,7 +15,7 @@ const Dashboard = () => {
     }
   }, [user]);
   return (
-    <div>
+    <div className="container">
       {user?.userType === "admin" && <AdminDashboard />}
       {user?.userType === "model" && <ModelDashboard />}
       {user?.userType === "photographer" && <PhotographerDashboard />}

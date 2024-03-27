@@ -2,6 +2,13 @@
   padding: 4rem 0rem;
   background-color: black;
   margin-top: 2rem;
+  .main-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    h1 {
+      color: white;
+    }
+  }
   .footer-wrapper {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -31,6 +38,9 @@
 
 @media (max-width: 840px) {
   #footer {
+    .main-wrapper {
+      display: block;
+    }
     .footer-wrapper {
       grid-template-columns: repeat(2, 1fr);
       .footer-unit {

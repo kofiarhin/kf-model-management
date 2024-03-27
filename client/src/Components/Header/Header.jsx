@@ -33,11 +33,17 @@ const Header = () => {
           </Link>
 
           <nav>
+            <NavLink to="/" className={linkClass}>
+              Home
+            </NavLink>
+            <NavLink to="/models" className={linkClass}>
+              Models
+            </NavLink>
+            <NavLink to="/castings" className={linkClass}>
+              Castings
+            </NavLink>
             {user ? (
               <>
-                <NavLink to="/" className={linkClass}>
-                  Home
-                </NavLink>
                 <NavLink to="/dashboard" className={linkClass}>
                   Dashboard
                 </NavLink>
@@ -47,19 +53,6 @@ const Header = () => {
               </>
             ) : (
               <>
-                <NavLink to="/" className={linkClass}>
-                  {" "}
-                  Home{" "}
-                </NavLink>
-
-                <NavLink to="/models" className={linkClass}>
-                  {" "}
-                  Models{" "}
-                </NavLink>
-                <NavLink to="/castings" className={linkClass}>
-                  {" "}
-                  Castings
-                </NavLink>
                 <NavLink to="/login" className={linkClass}>
                   Login
                 </NavLink>

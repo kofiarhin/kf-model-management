@@ -1,3 +1,4 @@
+import "./login.styles.scss";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { login, loginUser, reset } from "../../features/auth/authSlice";
@@ -48,21 +49,21 @@ const Login = () => {
     dispatch(loginUser(dataToSubmit));
   };
 
-const renderError = (field) => {
-  let item = null;
-  errors.forEach((error, index) => {
-    if (error.field === field) {
-      item = error;
-    }
-  });
+  const renderError = (field) => {
+    let item = null;
+    errors.forEach((error, index) => {
+      if (error.field === field) {
+        item = error;
+      }
+    });
 
-  if (item) {
-    return <p className="error"> {item.message} </p>;
-  }
-};
+    if (item) {
+      return <p className="error"> {item.message} </p>;
+    }
+  };
 
   return (
-    <div>
+    <div id="login">
       <h1 className="heading center">Login</h1>
       <div className="form-wrapper">
         <form onSubmit={handleSubmit}>

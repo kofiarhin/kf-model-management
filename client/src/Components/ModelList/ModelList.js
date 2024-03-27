@@ -9,7 +9,8 @@ const ModelList = ({ data }) => {
             <div className="img-container">
               <img src={item.images[0]} alt="" />
             </div>
-            <p className="name"> {item.name} </p>
+            <h2 className="name"> {item.name} </h2>
+            <p> {item.location} </p>
           </Link>
         );
       })}

@@ -37,6 +37,13 @@ a {
   }
 }
 
+.flex-wrapper {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .form-wrapper {
   width: 800px;
   max-width: 90%;
@@ -132,7 +139,21 @@ a {
 }
 
 @media (max-width: 800px) {
+  .flex-wrapper {
+    display: block;
+  }
+
+  .form-wrapper {
+    .input-wrapper {
+      display: block;
+      margin-bottom: 1rem;
+    }
+  }
   .heading {
-    font-size: 1.2rem;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+  .text-large {
+    font-size: 1.5rem;
   }
 }

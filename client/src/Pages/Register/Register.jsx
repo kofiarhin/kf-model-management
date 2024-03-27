@@ -3,6 +3,7 @@ import cities from "../../data/cities";
 import { useDispatch, useSelector } from "react-redux";
 import { createUser, reset } from "../../features/auth/authSlice";
 import { useNavigate } from "react-router-dom";
+import "./register.styles.scss";
 
 // register
 const Register = () => {
@@ -95,7 +96,7 @@ const Register = () => {
   };
 
   return (
-    <div>
+    <div id="register">
       <h1 className="heading center">Register</h1>
 
       <div className="form-wrapper">
