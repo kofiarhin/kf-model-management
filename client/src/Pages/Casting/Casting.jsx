@@ -2,12 +2,16 @@ import { useParams } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
 import { formatDate } from "../../utils/helper";
 import "./casting.styles.scss";
+import Spinner from "../../Components/Spinner/Spinner";
 
 const Casting = () => {
   const { id } = useParams();
 
-  const { data } = useFetch(`/api/castings/${id}`);
-  console.log(data);
+  const { data, isLoading } = useFetch(`/api/castings/${id}`);
+
+  if (isLoading) {
+    return <Spinner />;
+  }
 
   return (
     <div>
