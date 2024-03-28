@@ -25,6 +25,10 @@ const registerUser = async (req, res, next) => {
         "any.required": "Date of Birth is required.",
         "string.empty": "Date of Birth cannot be empty.",
       }),
+      gender: joi.string().required().messages({
+        "any.required": "Gender is required.",
+        "string.empty": "Gender cannot be empty.",
+      }),
       instagramUrl: joi.string().required().messages({
         "any.required": "Instagram Url is required.",
         "string.empty": "Instagram Url cannot be empty.",
@@ -70,8 +74,6 @@ const registerUser = async (req, res, next) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
     const user = await User.create({ password: hashedPassword, ...rest });
-
-    console.log(user);
 
     if (!user) {
       res.status(400);

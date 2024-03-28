@@ -1,6 +1,6 @@
 @import "../../styles/variables.scss";
 #landing {
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
   position: relative;
   height: 80vh;
 
@@ -50,7 +50,12 @@
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 860px) {
+  .featured-wrapper {
+    .featured-unit {
+      height: 300px;
+    }
+  }
   #landing .overlay {
     padding-left: 30px;
     .content-wrapper {
@@ -58,6 +63,17 @@
       h2 {
         font-size: 1.8rem;
       }
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .featured-wrapper {
+    display: block;
+    .featured-unit {
+      height: 450px;
+      margin-bottom: 1rem;
+      display: block;
     }
   }
 }

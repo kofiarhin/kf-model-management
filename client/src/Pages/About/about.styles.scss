@@ -1,12 +1,23 @@
 #about {
-  min-height: 70vh;
+  min-height: 60vh;
   .text-content {
-    width: 800px;
+    width: 70vw;
     max-width: 100%;
     text-align: center;
+    margin: 0 auto;
     p {
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       line-height: 1.2;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  #about {
+    .text-content {
+      p {
+        font-size: 1.2rem;
+      }
     }
   }
 }

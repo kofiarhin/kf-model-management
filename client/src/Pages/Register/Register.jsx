@@ -18,6 +18,7 @@ const Register = () => {
     name: "",
     email: "",
     password: "",
+    gender: "",
     location: "",
     dob: "",
     instagramUrl: "",
@@ -26,8 +27,16 @@ const Register = () => {
 
   const [userType, setUserType] = useState("");
 
-  const { name, email, password, location, dob, phoneNumber, instagramUrl } =
-    formData;
+  const {
+    name,
+    email,
+    password,
+    gender,
+    location,
+    dob,
+    phoneNumber,
+    instagramUrl,
+  } = formData;
 
   useEffect(() => {
     if (user) {
@@ -137,6 +146,21 @@ const Register = () => {
                 onChange={handleChange}
               />
               {errors.length > 0 ? renderError("password") : null}
+            </div>
+
+            <div className="input-group">
+              <label htmlFor="gender"> Gender</label>
+              <select
+                name="gender"
+                id=""
+                value={gender}
+                onChange={handleChange}
+              >
+                <option value="">--select gender --</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+              {errors.length > 0 ? renderError("gender") : null}
             </div>
 
             <div className="input-group">

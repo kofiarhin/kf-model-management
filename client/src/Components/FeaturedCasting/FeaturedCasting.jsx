@@ -3,11 +3,12 @@ import "./featuredCasting.styles.scss";
 import useFetch from "../../hooks/useFetch";
 const FeaturedCasting = ({ isHome = true }) => {
   const { data } = useFetch("/api/castings");
+  const featuredData = data && data.length > 3 ? data.slice(0, 3) : data;
   return (
     <>
-      {data && (
+      {featuredData && (
         <div className={`featured-wrapper ${isHome ? "home" : ""}`}>
-          {data.map((item, index) => {
+          {featuredData.map((item, index) => {
             return (
               <Link
                 to={`/castings/${item._id}`}
@@ -20,9 +21,8 @@ const FeaturedCasting = ({ isHome = true }) => {
                     <p> {item.location} </p>
                   </div>
                 </div>
-                <div className="img-container">
-                  <img src={item.images[0]} alt="" />
-                </div>
+
+                <img src={item.images[0]} alt="casting" />
               </Link>
             );
           })}
