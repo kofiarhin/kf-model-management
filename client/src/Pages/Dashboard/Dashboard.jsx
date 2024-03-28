@@ -1,3 +1,4 @@
+import "./dashboard.styles.scss";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import AdminDashboard from "./AdminDashboard/AdminDashboard";
@@ -15,10 +16,12 @@ const Dashboard = () => {
     }
   }, [user]);
   return (
-    <div className="container">
-      {user?.userType === "admin" && <AdminDashboard />}
-      {user?.userType === "model" && <ModelDashboard />}
-      {user?.userType === "photographer" && <PhotographerDashboard />}
+    <div id="dashboard">
+      <div className="container">
+        {user?.userType === "admin" && <AdminDashboard />}
+        {user?.userType === "model" && <ModelDashboard />}
+        {user?.userType === "photographer" && <PhotographerDashboard />}
+      </div>
     </div>
   );
 };

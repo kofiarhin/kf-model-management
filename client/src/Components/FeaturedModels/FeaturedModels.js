@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 const FeaturedModels = () => {
   const { data } = useFetch("/api/users/merged_data?userType=model");
 
-  console.log(data);
-
   return (
     <>
       {data && (

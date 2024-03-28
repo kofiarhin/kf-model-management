@@ -1,3 +1,4 @@
+import "./upload.styles.scss";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -14,7 +15,7 @@ const Upload = () => {
   }, [user]);
 
   return (
-    <div>
+    <div id="upload">
       <div className="form-wrapper"></div>
       <ImageForm />
     </div>

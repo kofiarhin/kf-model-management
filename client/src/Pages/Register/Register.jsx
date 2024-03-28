@@ -83,6 +83,7 @@ const Register = () => {
       password,
       userType,
       location,
+      gender,
       dob,
       instagramUrl,
       phoneNumber,
