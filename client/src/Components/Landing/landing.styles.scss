@@ -51,17 +51,15 @@
 }
 
 @media (max-width: 860px) {
-  .featured-wrapper {
-    .featured-unit {
-      height: 300px;
-    }
-  }
-  #landing .overlay {
-    padding-left: 30px;
-    .content-wrapper {
-      width: 100%;
-      h2 {
-        font-size: 1.8rem;
+  #landing {
+    height: 60vh;
+    .overlay {
+      padding-left: 30px;
+      .content-wrapper {
+        width: 100%;
+        h2 {
+          font-size: 1.8rem;
+        }
       }
     }
   }

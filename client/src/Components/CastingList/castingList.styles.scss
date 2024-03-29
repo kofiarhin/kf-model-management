@@ -1,7 +1,7 @@
 @import "../../styles/variables.scss";
 .casting-wrapper {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 
   p {
@@ -24,7 +24,7 @@
       }
     }
     .img-container {
-      height: 500px;
+      height: 450px;
       margin-bottom: 1rem;
       img {
         height: 100%;

@@ -1,6 +1,6 @@
 .model-wrapper {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   padding: 20px 0px;
 
@@ -24,6 +24,12 @@
       object-fit: cover;
       width: 100%;
     }
+  }
+}
+
+@media (max-width: 1200px) {
+  .model-wrapper {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 @media (max-width: 860px) {

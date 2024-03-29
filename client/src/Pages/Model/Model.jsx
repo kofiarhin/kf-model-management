@@ -13,7 +13,7 @@ const Model = () => {
   }
 
   return (
-    <div>
+    <div className="container">
       <h1 className="heading center"> {data?.name} </h1>
       {data && <ImageList data={data.images} />}
     </div>
