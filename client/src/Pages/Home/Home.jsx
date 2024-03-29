@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 import Models from "../../Components/Models/Models";
 import "./home.styles.scss";
 import Landing from "../../Components/Landing/Landing";
-import FeaturedCasting from "../../Components/FeaturedCasting/FeaturedCasting";
-import FeaturedModels from "../../Components/FeaturedModels/FeaturedModels";
+import FeaturedCastings from "../../Components/Featured/FeaturedCasting";
+import FeaturedModels from "../../Components/Featured/FeaturedModels";
 const Home = () => {
   return (
     <div id="home">
@@ -16,7 +16,7 @@ const Home = () => {
 
         <section>
           <h1 className="heading center">Popular Casting</h1>
-          <FeaturedCasting />
+          <FeaturedCastings />
         </section>
       </div>
     </div>
